@@ -12,28 +12,10 @@
     <v-main>
       <router-view/>
     </v-main>
+
+    <v-footer app class="d-flex justify-space-between">
+      Вадим Лазаренко
+      <a href="https://github.com/ifynk/" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </v-footer>
   </v-app>
 </template>
-
-<script>
-export default {
-  data() {
-    return {
-
-    };
-  },
-  computed: {
-
-  },
-  watch: {
-
-  },
-  methods: {
-
-  },
-};
-</script>
-
-<style scoped>
-
-</style>
