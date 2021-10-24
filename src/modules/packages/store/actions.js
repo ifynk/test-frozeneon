@@ -1,10 +1,19 @@
-import Api from '@/api/JsdelivrApi'
+import NpmRegistryApi from '@/api/NpmRegistryApi'
 
 export default {
-  getInfo: async ({ commit }) => {
-    const { data } = await Api.get('/users/info')
+  async search({ commit }, payload) {
+    const { data } = await NpmRegistryApi.get('/-/v1/search', { params: payload})
 
-    commit('setBalance', data.balance)
+    commit('setItems', data.objects)
+    commit('setItemsTotal', data.total)
+
+    return data
+  },
+
+  async getPackageInfo({ commit }, packageName) {
+    const { data } = await NpmRegistryApi.get(`/${packageName}`)
+
+    commit('setPackageInfo', data)
 
     return data
   },
